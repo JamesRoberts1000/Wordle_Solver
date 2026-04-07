@@ -13,6 +13,7 @@ Wordle gives limited feedback each turn. The goal is to narrow the solution spac
 - Local word-frequency corpus: `unigram_freq.csv`
 - Historical Wordle answers archive:
   - https://raw.githubusercontent.com/Hamster45105/wordle-archive/main/solutions/wordle_solutions.json
+Thanks to https://github.com/Hamster45105 for this.
 
 ## Method
 
@@ -78,53 +79,5 @@ pytest -q
 
 ## Live Demo
 
-- Add deployment link here after publishing:
-  - `https://<your-streamlit-app-url>`
+https://wordlesolver-ndbngsslxfz7nxxgvebgpp.streamlit.app/
 
-## Deploy To Streamlit Community Cloud (Step-by-Step)
-
-1. Push this project to a public GitHub repository.
-2. Go to [https://share.streamlit.io/](https://share.streamlit.io/) and sign in with GitHub.
-3. Click **Create app**.
-4. Select:
-   - **Repository**: your Wordle repo
-   - **Branch**: `main` (or your default branch)
-   - **Main file path**: `app.py`
-5. Expand **Advanced settings** and confirm:
-   - Python dependencies are read from `requirements.txt`.
-6. Click **Deploy**.
-7. After deployment completes:
-   - copy the app URL,
-   - paste it into the **Live Demo** section above,
-   - add the same link to your GitHub repo description.
-
-If deployment fails:
-- open the app logs in Streamlit Cloud,
-- verify `requirements.txt` installs cleanly,
-- confirm `app.py` and `unigram_freq.csv` are in the repo root.
-
-## Manual Validation Scenarios
-
-Run these quick checks before sharing:
-
-1. **Base run**
-   - Launch app with no filters.
-   - Expect non-empty candidate table and top-10 table.
-2. **Include/exclude**
-   - Include: `ra`, Exclude: `g`.
-   - Expect words containing `r` and `a`, and no `g`.
-3. **Known position**
-   - Position 1 = `c`, Position 5 = `e`.
-   - Expect results like `crane`-style pattern only.
-4. **Repeated letters**
-   - Include: `rr`.
-   - Expect only words with at least two `r` letters.
-5. **Fallback behavior**
-   - Temporarily disable internet and reload app.
-   - Expect warning about archive fetch, but app still returns candidates.
-
-## What I Would Build Next
-
-- Add full Wordle feedback modeling (green/yellow/gray by position and count).
-- Implement entropy/information-gain ranking and compare against current heuristic.
-- Add historical backtesting: average guesses needed across archived answers.
