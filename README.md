@@ -66,11 +66,6 @@ pytest -q
 - Exclusion logic assumes excluded letters are globally absent (does not yet model nuanced repeated-letter feedback from Wordle).
 - Historical archive fetch is network-dependent; app continues gracefully when unavailable.
 
-## Portfolio Presentation Checklist
-
-- Add a deployed app URL (Streamlit Community Cloud) below.
-- Optionally include one short write-up comparing this heuristic vs entropy-based methods.
-
 ## Screenshots
 
 ![Empty state](screenshots/01-empty-state.png)
